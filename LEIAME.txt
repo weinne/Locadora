@@ -1,0 +1,33 @@
+﻿Projeto: Locadora
+
+==============================================================================
+
+Modulos:
+	#PESSOA
+		OK - Pessoa
+		- Endereço
+		- Funcionário
+	#OBRA
+		- Ator
+		- Categoria
+		- Rotulo
+		- TipoMidia
+		- Midia
+		- Preço
+		- Obra
+	#LOCACAO
+		- ...
+
+==============================================================================
+Para 10/11/2012 - Fazer para amanhã as classes, conforme divisão abaixo:
+
+Julian - Ator, Categoria, Rotulo
+
+
+Rodrigo - TipoMidia, Midia, Preço
+
+
+Weinne - Endereco, Fucionario, Obra
+
+
+==============================================================================
