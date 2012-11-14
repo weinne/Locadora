@@ -1,5 +1,5 @@
 <?php
-$UrlSite = "http://".$_SERVER['HTTP_HOST']."/Dropbox/locadora/";
+$UrlSite = "http://".$_SERVER['HTTP_HOST']."/Locadora/";
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml">

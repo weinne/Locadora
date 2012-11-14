@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Funcionario - classe para funcionários
+ * Cliente - classe para funcionários
  * @package pessoa
  * @author Julian Rodrigues
  * @author Rodrigo Sousa
@@ -9,9 +9,9 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
- class Funcionario extends Pessoa
+ class Cliente extends Pessoa
  {
- 	private $Salario;
+ 	private $Pontos;
 
  	function __construct($Cod = NULL) {
  		$this->Cod = $Cod;
@@ -20,19 +20,19 @@
  	/**
  	 * Retorna Salário do funcionário
  	 *
- 	 * @return Float $Salario
+ 	 * @return Float $Pontos
  	 */
- 	public function getSalario() {
- 	    return $this->$Salario;
+ 	public function getPontos() {
+ 	    return $this->$Pontos;
  	}
  	
  	/**
  	 * Seta o  Salário do funcionário com valor recebido
  	 *
- 	 * @param Int $Salario Salario_funcionario
+ 	 * @param Int $Pontos Pontos_cliente
  	 */
- 	public function setSalario($Salario) {
- 	    $this->Salario = $Salario;
+ 	public function setPontos($Pontos) {
+ 	    $this->Pontos = $Pontos;
  		return $this;
  	}
 
@@ -43,7 +43,7 @@
 			"CPF"      => $this->CPF,
 			"Telefone" => $this->Telefone,
 			"DataNasc" => $this->DataNasc,
-			"Salario"  => $this->Salario,
+			"Pontos"  => $this->Pontos,
  			);
  		$ObjLocal = $_POST['ObjLocal'];
  		$ObjLocal = json_decode($ObjLocal);
@@ -64,7 +64,7 @@
 
  	public function cadastra() {
  		$this->set();
- 		$this->setSalario($_POST['Salario']);
+ 		$this->setPontos($_POST['Pontos']);
 		$retorno = $this->salva();
  		return $retorno;
  	}
@@ -77,7 +77,7 @@
  		} else {
  			foreach ($ObjLocal as $Obj) {
  				$Html .= '
- 				<div class="col_12 divAltera" onClick="selecionaAlterar('."'funcionario'".','.$Obj->Cod.')">'.
+ 				<div class="col_12 divAltera" onClick="selecionaAlterar('."'cliente'".','.$Obj->Cod.')">'.
  				$Obj->Nome.'</div>';
  			}
  			return $Html;

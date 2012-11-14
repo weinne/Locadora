@@ -8,7 +8,12 @@
 </head>
 <body>
 	<ul class="menu">
-		<li><a href="<?php echo $UrlSite ?>pessoa/index.php">Pessoa</a></li>
+		<li><a href="">Pessoa</a>
+			<ul>
+				<li><a href="<?php echo $UrlSite ?>pessoa/cliente.php"></span>Cliente</a></li>
+				<li><a href="<?php echo $UrlSite ?>pessoa/funcionario.php"></span>Funcionário</a></li>
+			</ul>
+		</li>
 		<li class="current"><a href="">Obras</a>
 			<ul>
 				<li><a href="<?php echo $UrlSite ?>obras/categoria.php">Categoria</a></li>
@@ -21,7 +26,7 @@
 		<li><a href="<?php echo $UrlSite ?>locacao/index.php">Locação</a>
 	</ul>
 	
-	<h1>Obra</h1>
+	<h1>Filmes</h1>
 
 	<ul class="tabs left">
 		<li><a href="#cad" id="linkCadastrar">Cadastrar</a></li>
@@ -47,7 +52,7 @@
 				<span>Categoria:</span>
 				<select id="Categoria" name="Categoria">
 				</select>
-				<a class="button small green lightbox iframe adicionar" href="<?php echo $UrlSite ?>obras/categoria.php">
+				<a class="button small lightbox iframe adicionar" href="<?php echo $UrlSite ?>obras/categoria.php">
 					adicionar
 				</a>
 			</label><br/>
@@ -55,7 +60,7 @@
 				<span>Rotulo:</span>
 				<select id="Rotulo" name="Rotulo">
 				</select>
-				<a class="button small green lightbox iframe adicionar" href="<?php echo $UrlSite ?>obras/rotulo.php">
+				<a class="button small lightbox iframe adicionar" href="<?php echo $UrlSite ?>obras/rotulo.php">
 					adicionar
 				</a>
 			</label><br/>

@@ -11,11 +11,11 @@
 
  class Pessoa
  {
- 	private $Cod;
- 	private $Nome;
- 	private $DataNasc;
- 	private $CPF;
- 	private $Telefone;
+ 	protected static $Cod;
+ 	protected static $Nome;
+ 	protected static $DataNasc;
+ 	protected static $CPF;
+ 	protected static $Telefone;
 
  	function __construct() {
  	}

@@ -6,17 +6,31 @@ function __autoload($classe)
    	include_once "../classes/{$classe}_class.php";
 }
 
-$Pessoa    = new Pessoa();
-$Categoria = new Categoria();
-$TipoMidia = new TipoMidia();
-$Rotulo    = new Rotulo();
-$Obra      = new Obra();
-$Midia     = new Midia();
+$Pessoa      = new Pessoa();
+$Funcionario = new Funcionario();
+$Cliente     = new Cliente();
+$Categoria   = new Categoria();
+$TipoMidia   = new TipoMidia();
+$Rotulo      = new Rotulo();
+$Obra        = new Obra();
+$Midia       = new Midia();
 
  switch ($_GET['Opcao']){
     case 'cadastra_pessoa': echo $Pessoa->cadastra();
         break;
     case 'lista_altera_pessoa': echo $Pessoa->listaAltera();
+        break;
+    case 'cadastra_funcionario': echo $Funcionario->cadastra();
+        break;
+    case 'lista_altera_funcionario': echo $Funcionario->listaAltera();
+        break;
+    case 'listbox_funcionario': echo $Funcionario->listBox();
+        break;
+    case 'cadastra_cliente': echo $Cliente->cadastra();
+        break;
+    case 'lista_altera_cliente': echo $Cliente->listaAltera();
+        break;
+    case 'listbox_cliente': echo $Cliente->listBox();
         break;
     case 'cadastra_categoria': echo $Categoria->cadastra();
         break;

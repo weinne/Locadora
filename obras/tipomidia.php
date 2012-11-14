@@ -4,7 +4,12 @@
 </head>
 <body>
 	<ul class="menu">
-		<li><a href="<?php echo $UrlSite ?>pessoa/index.php">Pessoa</a></li>
+		<li><a href="">Pessoa</a>
+			<ul>
+				<li><a href="<?php echo $UrlSite ?>pessoa/cliente.php"></span>Cliente</a></li>
+				<li><a href="<?php echo $UrlSite ?>pessoa/funcionario.php"></span>Funcionário</a></li>
+			</ul>
+		</li>
 		<li class="current"><a href="">Obras</a>
 			<ul>
 				<li class="current"><a href="<?php echo $UrlSite ?>obras/categoria.php">Categoria</a></li>

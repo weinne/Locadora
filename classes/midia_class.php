@@ -14,6 +14,7 @@ class Midia
 	private $Cod;
 	private $Obra;
 	private $TipoMidia;
+	private $Preco;
 
 	function __construct()
 	{
@@ -42,6 +43,25 @@ class Midia
 	    return $this;
 	}
 
+	/**
+ 	 * Retorna Preco da midia
+ 	 *
+ 	 * @return Int $Preco
+ 	 */
+ 	public function getPreco() {
+ 	    return $this->$Preco;
+ 	}
+ 	
+ 	/**
+ 	 * Seta o Preco com valor recebido
+ 	 *
+ 	 * @param Int $Preco Preco
+ 	 */
+ 	public function setPreco($Preco) {
+ 	    $this->Preco = $Preco;
+ 	    return $this;
+ 	}
+
 	public function set() {
 		//Seta código
  		$this->setCod($_POST['Cod']);
@@ -60,6 +80,7 @@ class Midia
  		}
  		$this->Obra->setCod($_POST['Obra']);
  		$this->TipoMidia->setCod($_POST['TipoMidia']);
+ 		$this->setPreco($_POST['Preco']);
  		return $this;
  	}
 
@@ -68,6 +89,7 @@ class Midia
 			"Cod"       => $this->Cod,
 			"Obra"      => $this->Obra->getByJSON($_POST['ObjetoObra']),
 			"TipoMidia" => $this->TipoMidia->getByJSON($_POST['ObjetoTipoMidia']),
+			"Preco"     => $this->Preco
  			);
  		$ObjLocal = $_POST['ObjLocal'];
  		$ObjLocal = json_decode($ObjLocal);

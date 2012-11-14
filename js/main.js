@@ -1,4 +1,5 @@
-$(document).ready(function(){
+$(document).ready(function()
+{
     $('#linkCadastrar').click(function(){
 		$('input[type=text]').val('');
 		$('input[type=hidden]').val('');
@@ -10,10 +11,13 @@ $(document).ready(function(){
 	$('.input-telefone').mask('+55 (99) 9999-9999')
     $('.input-data').mask('99/99/9999');
     $('.input-tempo').mask('9');
-	$('.input-preco').mask('R$ 9,99');
+    $('.input-preco').mask('R$ 9,99');
+    $('.input-salario').mask('R$ 9999,99');
+	$('.input-num').mask('9999');
 });
 
-function cadastra(Classe, NomeForm) {
+function cadastra(Classe, NomeForm) 
+{
     ObjetoLocal = localStorage.getItem(Classe);
     ObjetoCategoria = localStorage.getItem('categoria');
     ObjetoRotulo = localStorage.getItem('rotulo');
@@ -50,7 +54,8 @@ function cadastra(Classe, NomeForm) {
     });
 }
 
-function pegaListaAltera(Classe) {
+function pegaListaAltera(Classe) 
+{
 	ObjetoLocal = localStorage.getItem(Classe);
 	$.ajax({
         url: UrlSite+'ajax/ajax.php?Opcao=lista_altera_'+Classe,
@@ -71,7 +76,8 @@ function pegaListaAltera(Classe) {
     });
 }
 
-function selecionaAlterar(Classe, Cod) {
+function selecionaAlterar(Classe, Cod) 
+{
 	ObjetoLocal = localStorage.getItem(Classe);
 	ObjetoLocal_json = JSON.parse(ObjetoLocal);
 	Qtd = ObjetoLocal_json.length;
@@ -87,12 +93,15 @@ function selecionaAlterar(Classe, Cod) {
             $('#Preco').val(ObjetoLocal_json[i].Preco);
             $('#Diretor').val(ObjetoLocal_json[i].Diretor);
             $('#Titulo').val(ObjetoLocal_json[i].Titulo);
+            $('#Salario').val(ObjetoLocal_json[i].Salario);
+            $('#Pontos').val(ObjetoLocal_json[i].Pontos);
 			$('#cad').show();
 		}
 	}
 }
 
-function pegaListBox(Classe) {
+function pegaListBox(Classe)
+{
     ObjetoLocal = localStorage.getItem(Classe);
     $.ajax({
         url: UrlSite+'ajax/ajax.php?Opcao=listbox_'+Classe,
@@ -118,7 +127,35 @@ function pegaListBox(Classe) {
                 if(Classe == 'tipomidia') {
                     $('#TipoMidia').html(Resp);
                 }
+                if(Classe == 'funcionario') {
+                    $('#Funcionario').html(Resp);
+                }
+                if(Classe == 'cliente') {
+                    $('#Cliente').html(Resp);
+                }
             }
         }
     });
+}
+
+function atualizaPreco()
+{
+    var ObraCod = $('#Obra').val();
+    var TipoMidiaCod = $('#TipoMidia').val();
+
+    var ObjObras = JSON.parse(localStorage.getItem("obra"));
+    var ObjRotulo = ObjObras[ObraCod].Rotulo;
+    var ObjTipoMidias = JSON.parse(localStorage.getItem("tipomidia"));
+
+    var PrecoTipoMidia = ObjTipoMidias[TipoMidiaCod].Preco;
+    var PrecoRotuloObra = ObjRotulo.Preco;
+
+    var PrecoTipoMidia = PrecoTipoMidia.substring(3,7).replace(",",".");
+    var PrecoRotuloObra = PrecoRotuloObra.substring(3,7).replace(",",".");
+
+    var PrecoTipoMidia = parseFloat(PrecoTipoMidia);
+    var PrecoRotuloObra = parseFloat(PrecoRotuloObra);
+
+    Preco = PrecoTipoMidia + PrecoRotuloObra;
+    $('#Preco').val('R$ ' + Preco);
 }

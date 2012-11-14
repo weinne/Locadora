@@ -158,6 +158,8 @@
  		if(empty($ObjLocal)) {
  			return '<option value="">Não há itens</option>';
  		} else {
+ 			$Html .= '
+ 				<option>Selecione um item..</option>';
  			foreach ($ObjLocal as $Obj) {
  				$Html .= '
  				<option value="'.$Obj->Cod.'">'.
