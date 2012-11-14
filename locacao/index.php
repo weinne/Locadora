@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="css/main.css" type="text/css">
 <script src="<?php echo $UrlSite ?>/js/main.js"></script>
 <script>
-	pegaListBox('obra');
+	pegaListBox('midia');
 	pegaListBox('funcionario');
 	pegaListBox('cliente');
 </script>
@@ -35,12 +35,14 @@
 	</ul>
 
 	<div class="tab-content" id="cad">
-		<form name="FormObra" id="FormObra">
+		<form name="FormLocacao" id="FormLocacao">
 			<input type="hidden" name="Cod" id="Cod" />
-			<label for="Obra"><span>Obra:</span>
-				<select id="Obra" name="Obra">
+			<label for="Midia"><span>Midia:</span>
+				<select multiple id="Midia" name="Midia">
 				</select>
-				<a class="button small" onClick="addObraLocacao()">adicionar</a>
+				<a class="button small lightbox iframe" href="<?php echo $UrlSite ?>obras/midia.php">
+					adicionar
+				</a>
 			</label><br/>
 			<label for="Funcionario"><span>Funcionario:</span>
 				<select id="Funcionario" name="Funcionario">
@@ -52,9 +54,15 @@
 				</select>
 				<a class="button small" >adicionar</a>
 			</label><br/>
+			<label for="DataLocacao"><span>Data de Locação:</span>
+				<input type="text" id="DataLocacao" class="input-data" name="DataLocacao"/>
+			</label><br/>
+			<label for="DataDevolucao"><span>Data de Devolução:</span>
+				<input type="text" id="DataDevolucao" class="input-data" name="DataDevolucao"/>
+			</label><br/>
 			<label>
 				<span>.</span> 
-				<input type="button" name="Enviar" id="Enviar" value="Salvar" onClick="cadastra('obra', 'FormObra');" />
+				<input type="button" name="Enviar" id="Enviar" value="Salvar" onClick="cadastra('locacao', 'FormLocacao');" />
 			</label><br/>
 		</form>
 	</div>

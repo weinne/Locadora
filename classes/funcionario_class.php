@@ -100,4 +100,18 @@
  			return $Html;
  		}
  	}
+
+ 	public function getByJSON($Obj) {
+ 		$ObjLocal = json_decode($Obj);
+ 		$Altera = false;
+ 		if(!empty($ObjLocal)) {
+ 			foreach($ObjLocal as $Key => $Obj) {
+	 			if($Obj->Cod == $this->Cod) {
+	 				return $Obj;
+	 			}
+	 		}
+ 		} else {
+ 			return false;
+ 		}
+ 	}
  }

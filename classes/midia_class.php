@@ -15,6 +15,7 @@ class Midia
 	private $Obra;
 	private $TipoMidia;
 	private $Preco;
+	private $Situacao;
 
 	function __construct()
 	{
@@ -62,6 +63,24 @@ class Midia
  	    return $this;
  	}
 
+ 	/**
+ 	 * Retorna Situação da midia
+ 	 *
+ 	 * @return Int $Situacao
+ 	 */
+ 	public function getSituacao() {
+ 	    return $this->$Situacao;
+ 	}
+ 	
+ 	/**
+ 	 * Seta a Situação com valor recebido
+ 	 *
+ 	 * @param Int $Situacao Situacao
+ 	 */
+ 	public function setSituacao($Situacao) {
+ 	    $this->Situacao = $Situacao;
+   }
+
 	public function set() {
 		//Seta código
  		$this->setCod($_POST['Cod']);
@@ -81,6 +100,7 @@ class Midia
  		$this->Obra->setCod($_POST['Obra']);
  		$this->TipoMidia->setCod($_POST['TipoMidia']);
  		$this->setPreco($_POST['Preco']);
+ 		$this->setSituacao('Livre');
  		return $this;
  	}
 
@@ -89,7 +109,8 @@ class Midia
 			"Cod"       => $this->Cod,
 			"Obra"      => $this->Obra->getByJSON($_POST['ObjetoObra']),
 			"TipoMidia" => $this->TipoMidia->getByJSON($_POST['ObjetoTipoMidia']),
-			"Preco"     => $this->Preco
+			"Preco"     => $this->Preco,
+			"Situacao"  => $this->Situacao
  			);
  		$ObjLocal = $_POST['ObjLocal'];
  		$ObjLocal = json_decode($ObjLocal);
@@ -123,6 +144,23 @@ class Midia
  			foreach ($ObjLocal as $Obj) {
  				$Html .= '
  				<div class="col_12 divAltera" onClick="selecionaAlterar('."'midia'".','.$Obj->Cod.')">' . $Obj->Cod . ' | ' .$Obj->TipoMidia->Nome.' | '. $Obj->Obra->Titulo.'</div>';
+ 			}
+ 			return $Html;
+ 		}
+ 	}
+
+ 	public function listBox() {
+ 		$ObjLocal_json = $_POST['ObjLocal'];
+ 		$ObjLocal = json_decode($ObjLocal_json);
+ 		if(empty($ObjLocal)) {
+ 			return '<option value="">Não há itens</option>';
+ 		} else {
+			$Html .= '
+ 				<option>Selecione um item..</option>';
+ 			foreach ($ObjLocal as $Obj) {
+ 				if($Obj->Situacao == 'Livre') {
+ 					$Html .= '<option value="'.$Obj->Cod.'">'. $Obj->Cod . ' | ' .$Obj->TipoMidia->Nome.' | '. $Obj->Obra->Titulo.'</option>';
+ 				}
  			}
  			return $Html;
  		}

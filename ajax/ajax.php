@@ -14,6 +14,7 @@ $TipoMidia   = new TipoMidia();
 $Rotulo      = new Rotulo();
 $Obra        = new Obra();
 $Midia       = new Midia();
+$Locacao     = new Locacao();
 
  switch ($_GET['Opcao']){
     case 'cadastra_pessoa': echo $Pessoa->cadastra();
@@ -61,6 +62,10 @@ $Midia       = new Midia();
     case 'lista_altera_midia': echo $Midia->listaAltera();
         break;
     case 'listbox_midia': echo $Midia->listBox();
+        break;
+    case 'lista_altera_locacao': echo $Locacao->listaAltera();
+        break;
+    case 'listbox_locacao': echo $Locacao->listBox();
         break;
      default : echo false;
  }

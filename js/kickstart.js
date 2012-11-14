@@ -251,6 +251,7 @@ jQuery(document).ready(function($){
 			pegaListBox('categoria');
 			pegaListBox('rotulo');
 			pegaListBox('obra');
+			pegaListBox('midia');
 			pegaListBox('tipomidia');
 		}
 	});

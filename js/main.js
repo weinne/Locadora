@@ -18,17 +18,20 @@ $(document).ready(function()
 
 function cadastra(Classe, NomeForm) 
 {
-    ObjetoLocal = localStorage.getItem(Classe);
-    ObjetoCategoria = localStorage.getItem('categoria');
-    ObjetoRotulo = localStorage.getItem('rotulo');
-    ObjetoObra = localStorage.getItem('obra');
-    ObjetoTipoMidia = localStorage.getItem('tipomidia');
+    ObjetoLocal       = localStorage.getItem(Classe);
+    ObjetoCategoria   = localStorage.getItem('categoria');
+    ObjetoRotulo      = localStorage.getItem('rotulo');
+    ObjetoObra        = localStorage.getItem('obra');
+    ObjetoTipoMidia   = localStorage.getItem('tipomidia');
+    ObjetoFuncionario = localStorage.getItem('funcionario');
+    ObjetoCliente     = localStorage.getItem('cliente');
+    ObjetoMidia       = localStorage.getItem('midia');
         
 	$.ajax({
         url: UrlSite+'ajax/ajax.php?Opcao=cadastra_'+Classe,
         type: 'POST',
         datatype:'html',
-        data: $('#'+NomeForm).serialize() + '&ObjLocal=' + ObjetoLocal + '&ObjetoCategoria=' + ObjetoCategoria + '&ObjetoRotulo=' + ObjetoRotulo + '&ObjetoObra=' + ObjetoObra+ '&ObjetoTipoMidia=' + ObjetoTipoMidia,
+        data: $('#'+NomeForm).serialize() + '&ObjLocal=' + ObjetoLocal + '&ObjetoCategoria=' + ObjetoCategoria + '&ObjetoRotulo=' + ObjetoRotulo + '&ObjetoObra=' + ObjetoObra+ '&ObjetoTipoMidia=' + ObjetoTipoMidia + '&ObjetoFuncionario=' + ObjetoFuncionario + '&ObjetoCliente=' + ObjetoCliente+ '&ObjetoMidia=' + ObjetoMidia,
         complete:function(Req){
             Resp = Req.responseText;
             if(Resp == 0 || Resp == false || Resp == null){
@@ -126,6 +129,9 @@ function pegaListBox(Classe)
                 }
                 if(Classe == 'tipomidia') {
                     $('#TipoMidia').html(Resp);
+                }
+                if(Classe == 'midia') {
+                    $('#Midia').html(Resp);
                 }
                 if(Classe == 'funcionario') {
                     $('#Funcionario').html(Resp);
