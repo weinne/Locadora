@@ -3,7 +3,7 @@
 <script src="<?php echo $UrlSite ?>/js/main.js"></script>
 </head>
 <body>
-	<ul class="menu">
+	<ul class="menu nav">
 		<li class="current"><a href="">Pessoa</a>
 			<ul>
 				<li><a href="<?php echo $UrlSite ?>pessoa/cliente.php"></span>Cliente</a></li>
